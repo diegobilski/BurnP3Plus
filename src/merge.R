@@ -1,5 +1,5 @@
 # Setup ----
-Sys.unsetenv("PROJ_LIB")
+if (.Platform$OS.type == "windows") Sys.unsetenv("PROJ_LIB")
 library(rsyncrosim)
 
 # Testing:
@@ -302,7 +302,7 @@ updateRunLog("Finished merging tabular data in ", updateBreakpoint())
 
 ## Burn perimeters ----
 progressBar()
-progressBar(message = str_c("Merging ", length(scenariosToMerge), " scenarios", " - Merging vector burn perimters..."), type = "message")
+progressBar(message = str_c("Merging ", length(scenariosToMerge), " scenarios", " - Merging vector burn perimeters..."), type = "message")
 
 # Pick where to store merged fire perimeters and reset the file
 # Crosswalk and merge geopackages
